@@ -45,11 +45,13 @@ def fireball(target: str, power: int) -> str:
 
 
 if (__name__ == "__main__"):
-    combined: Callable[[str, int], tuple[str, str]] = spell_combiner(heal, fireball)
+    combined: Callable[[str, int], tuple[str, str]] =\
+        spell_combiner(heal, fireball)
     amplified: Callable[[str, int], str] = power_amplifier(fireball, 3)
     conditioned: Callable[[str, int], str] =\
         conditional_caster(lambda target, power: power >= 60, heal)
-    sequenced: Callable[[str, int], list[str]] = spell_sequence([heal, fireball, fireball, heal])
+    sequenced: Callable[[str, int], list[str]] =\
+        spell_sequence([heal, fireball, fireball, heal])
     print("== Spell combiner==")
     print(combined("Dragon", 60))
     print("\n== Power amplifier ==")
